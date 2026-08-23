@@ -3,6 +3,7 @@ sys.dont_write_bytecode = True
 
 from dotenv import load_dotenv
 from openai import OpenAI
+import streamlit as st
 from langchain_core.messages import HumanMessage, SystemMessage, AIMessage
 
 load_dotenv()
@@ -23,7 +24,12 @@ RAG_K_THRESHOLD = 5
 # can be used by overriding LLM_BASE_URL / LLM_API_KEY / LLM_MODEL.
 # ---------------------------------------------------------------------------
 LLM_MODEL = os.getenv("LLM_MODEL", "llama-3.1-8b-instant")
-LLM_API_KEY = os.getenv("LLM_API_KEY") or os.getenv("GROQ_API_KEY")
+LLM_API_KEY = (
+    os.getenv("LLM_API_KEY")
+    or os.getenv("GROQ_API_KEY")
+    or st.secrets.get("LLM_API_KEY", None)
+    or st.secrets.get("GROQ_API_KEY", None)
+)
 LLM_BASE_URL = os.getenv("LLM_BASE_URL", "https://api.groq.com/openai/v1")
 
 
