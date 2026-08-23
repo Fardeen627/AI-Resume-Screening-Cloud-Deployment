@@ -3,7 +3,7 @@ sys.dont_write_bytecode = True
 
 from dotenv import load_dotenv
 from openai import OpenAI
-from langchain.schema import HumanMessage, SystemMessage, AIMessage
+from langchain_core.messages import HumanMessage, SystemMessage, AIMessage
 
 load_dotenv()
 
