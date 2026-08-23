@@ -23,15 +23,14 @@ RAG_K_THRESHOLD = 5
 # inference, OpenAI-compatible endpoint), but any OpenAI-compatible provider
 # can be used by overriding LLM_BASE_URL / LLM_API_KEY / LLM_MODEL.
 # ---------------------------------------------------------------------------
-LLM_MODEL = os.getenv("LLM_MODEL", "llama-3.1-8b-instant")
-LLM_API_KEY = (
-    os.getenv("LLM_API_KEY")
-    or os.getenv("GROQ_API_KEY")
-    or st.secrets.get("LLM_API_KEY", None)
-    or st.secrets.get("GROQ_API_KEY", None)
-)
-LLM_BASE_URL = os.getenv("LLM_BASE_URL", "https://api.groq.com/openai/v1")
+LLM_MODEL = "llama-3.1-8b-instant"
 
+LLM_API_KEY = (
+    st.secrets.get("GROQ_API_KEY", None)
+    or st.secrets.get("LLM_API_KEY", None)
+)
+
+LLM_BASE_URL = "https://api.groq.com/openai/v1"
 
 class ChatBot():
     def __init__(self, api_key=None, model=LLM_MODEL):
