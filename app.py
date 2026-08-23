@@ -20,9 +20,9 @@ import chatbot_verbosity as chatbot_verbosity
 
 load_dotenv()
 
-DATA_PATH = os.getenv("DATA_PATH")
-FAISS_PATH = os.getenv("FAISS_PATH")
-EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL")
+DATA_PATH = "data/main-data/synthetic-resumes.csv"
+FAISS_PATH = "vectorstore-synthetic"
+EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 
 # The local Ollama model name has been replaced with a cloud LLM name,
 # configurable via env var. Defaults to Groq's free-tier Llama 3.1 8B model.
