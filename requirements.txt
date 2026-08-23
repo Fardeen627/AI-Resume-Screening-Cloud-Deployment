@@ -1,4 +1,4 @@
-streamlit
+streamlit-modal==0.1.2
 openai
 langchain
 langchain-community
